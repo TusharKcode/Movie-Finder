@@ -10,9 +10,7 @@ import Series from './pages/Series'
 import People from './pages/People'
 
 
-
 function App() {
-
   return (
     <>
       <Navbar/>

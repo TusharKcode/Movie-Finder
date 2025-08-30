@@ -7,8 +7,8 @@ function SearchBar() {
             borderRadius:"0",
             width:"100%",
             border:"solid teal",
-            backgroundColor:"grey",
-            color:"#fcfbfbff"
+            backgroundColor:"white",
+            color:"#4d1658ff"
             }} type="search" placeholder="Search movies, series, popular actor/actresses..."/>
     </div>
     </>

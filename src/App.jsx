@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <Navbar/>
+      
       <SearchBar/>
       <Routes>
         <Route path='/' element={<HomeSection/>}/>

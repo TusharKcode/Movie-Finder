@@ -8,9 +8,24 @@ import Movies from './pages/Movies'
 import AboutUs from './pages/AboutUs'
 import Series from './pages/Series'
 import People from './pages/People'
+import { useEffect, useState } from 'react'
 
 
 function App() {
+
+  const [movies, setMovies] = useState([])
+  
+  const url = 'https://jsonfakery.com/movies/paginated'
+  async function fetchData() {
+    let data = await fetch(url)
+    let res = await data.json()
+    setMovies(res.data)
+  }
+  useEffect(() => {
+    fetchData()
+  },[])
+  console.log(movies)
+
   return (
     <>
       <Navbar/>

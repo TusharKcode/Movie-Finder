@@ -12,7 +12,9 @@ import { useEffect, useState } from 'react'
 
 
 function App() {
+  const [allMovies, setAllMovies] = useState([]);
 
+  //Fetching data part for movies
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   
@@ -29,11 +31,24 @@ function App() {
     fetchData(page)
   },[page])
   
+
+  //Search part for movies
+  const handleSearch = (searchVal) => {
+    if(searchVal.trim() === ""){
+      setMovies(allMovies);
+      return
+    }
+    const filtered = allMovies.filter((m) => 
+      m.original_title.toLowerCase().includes(searchVal.toLowerCase())
+    );
+    setMovies(filtered);
+  }
+
   return (
     <>
       <Navbar/>
       
-      <SearchBar/>
+      <SearchBar onSearch={handleSearch}/>
       <Routes>
         <Route path='/' element={<HomeSection/>}/>
         <Route path='/movies' element={

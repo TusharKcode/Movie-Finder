@@ -1,4 +1,13 @@
-function SearchBar() {
+import { useState } from "react"
+import { BsSearch } from "react-icons/bs";
+function SearchBar({ onSearch }) {
+  
+  const [searchVal, setSearchVal] = useState("");
+  const handleSearchClick = () => {
+    if(onSearch){
+      onSearch(searchVal);
+    }
+  };
   return (
     <>
     <div style={{
@@ -11,7 +20,16 @@ function SearchBar() {
             border:"solid teal",
             backgroundColor:"white",
             color:"#4d1658ff"
-            }} type="search" placeholder="Search movies, series, popular actor/actresses..."/>
+            }} 
+            type="search" 
+            placeholder="Search movies, series, popular actor/actresses..."
+            value={searchVal}
+            onChange={(e) => setSearchVal(e.target.value)}
+          />
+          <BsSearch
+            style={{ cursor: "pointer", fontSize: "1.5rem" }}
+            onClick={handleSearchClick}
+          />
     </div>
     </>
   )

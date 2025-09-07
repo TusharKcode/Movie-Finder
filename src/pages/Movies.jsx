@@ -9,7 +9,7 @@ function Movies({ movies = [], page = 1, onPageChange }) {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          background: "radial-gradient(circle,rgba(61, 2, 171, 1) 0%, rgba(64, 199, 120, 1) 50%, rgba(69, 123, 204, 1) 100%);",
+          background: "radial-gradient(circle,rgba(61, 2, 171, 1) 0%, rgba(64, 199, 120, 1) 50%, rgba(69, 123, 204, 1) 100%)",
           padding: "20px",
         }}
       >

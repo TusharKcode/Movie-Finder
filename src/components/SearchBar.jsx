@@ -1,10 +1,12 @@
 function SearchBar() {
   return (
     <>
-    <div>
+    <div style={{
+      margin:"50px",
+    }}>
         <input style={{
             padding:"10px",
-            borderRadius:"0",
+            borderRadius:"20px",
             width:"100%",
             border:"solid teal",
             backgroundColor:"white",

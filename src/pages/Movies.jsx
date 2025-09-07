@@ -9,7 +9,7 @@ function Movies({ movies = [], page = 1, onPageChange }) {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          backgroundColor: "#f0f0f0",
+          background: "radial-gradient(circle,rgba(61, 2, 171, 1) 0%, rgba(64, 199, 120, 1) 50%, rgba(69, 123, 204, 1) 100%);",
           padding: "20px",
         }}
       >
@@ -23,6 +23,7 @@ function Movies({ movies = [], page = 1, onPageChange }) {
                 padding: "12px",
                 margin: "12px",
                 width: "200px",
+                height:"350px",
                 backgroundColor: "white",
                 borderRadius: "8px",
                 boxShadow: "2px 2px 10px rgba(0,0,0,0.1)",
@@ -33,7 +34,7 @@ function Movies({ movies = [], page = 1, onPageChange }) {
                 alt={original_title || "Movie Name"}
                 style={{
                   width: "100%",
-                  height: "150px",
+                  height: "200px",
                   objectFit: "cover",
                   borderRadius: "5px",
                 }}
@@ -41,7 +42,8 @@ function Movies({ movies = [], page = 1, onPageChange }) {
               <div
                 style={{
                   textAlign: "center",
-                  fontSize: "larger",
+                  fontWeight:"bolder",
+                  fontSize:"large",
                   marginTop: "8px",
                 }}
               >
@@ -50,7 +52,8 @@ function Movies({ movies = [], page = 1, onPageChange }) {
               <div
                 style={{
                   textAlign: "center",
-                  fontFamily: "cursive",
+                  fontSize:"13px",
+                  fontFamily: "monospace",
                   marginTop: "5px",
                 }}
               >

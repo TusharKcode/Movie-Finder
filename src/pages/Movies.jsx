@@ -13,11 +13,11 @@ function Movies({ movies = [], page = 1, onPageChange }) {
           padding: "20px",
         }}
       >
-        {movies.map((movie, index) => {
-          const { original_title, poster_path, release_date } = movie;
+        {movies.map((movie) => {
+          const { id, original_title, poster_path, release_date } = movie;
           return (
             <div
-              key={index}
+              key={id || original_title}
               style={{
                 border: "2px solid black",
                 padding: "12px",

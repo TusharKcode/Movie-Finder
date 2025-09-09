@@ -20,7 +20,7 @@ function App() {
   
   async function fetchData(pageNo = 1) {
     try {
-      const res = await fetch(`https://jsonfakery.com/movies/paginated?page=${pageNo}`);
+      const res = await fetch(`https://jsonfakery.com/movies/infinite-scroll?page=${pageNo}`);
       const json = await res.json();
       setMovies(json.data);
       setAllMovies(json.data);

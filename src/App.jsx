@@ -27,8 +27,22 @@ function App() {
       const res = await fetch(`https://jsonfakery.com/movies/infinite-scroll?page=${pageNo}`);
       const json = await res.json();
 
-      setMovies(prev => [...prev, ...json.data]);
-      setAllMovies(prev => [...prev, ...json.data]);
+      setMovies(prev => {
+        const combined = [...prev, ...json.data];
+        const unique = combined.filter(
+          (movie, index, self) => 
+            index === self.findIndex(m => m.id === movie.id || m.original_title === movie.original_title)
+        );
+        return unique;
+      });
+      setAllMovies(prev => {
+        const combined = [...prev, ...json.data];
+        const unique = combined.filter(
+          (movie, index, self) => 
+            index === self.findIndex(m => m.id === movie.id || m.original_title === movie.original_title)
+        );
+        return unique;
+      });
 
       setLoading(false);
     } catch (err) {

@@ -17,21 +17,45 @@ function App() {
   //Fetching data part for movies
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+
+  const [loading, setLoading] = useState(false);
   
   async function fetchData(pageNo = 1) {
     try {
+      setLoading(true)
+
       const res = await fetch(`https://jsonfakery.com/movies/infinite-scroll?page=${pageNo}`);
       const json = await res.json();
-      setMovies(json.data);
-      setAllMovies(json.data);
+
+      setMovies(prev => [...prev, ...json.data]);
+      setAllMovies(prev => [...prev, ...json.data]);
+
+      setLoading(false);
     } catch (err) {
       console.error('Error fetching movies', err)
+      setLoading(false);
     }
   }
   useEffect(() => {
     fetchData(page)
-  },[page])
+  },[])
   
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 200 && !loading){
+        setPage(prevPage => prevPage + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [loading]);
+
+  useEffect(() => {
+    if (page > 1) {
+      fetchData(page)
+    }
+  }, [page]);
 
   //Search part for movies
   const handleSearch = (searchVal) => {
@@ -55,14 +79,17 @@ function App() {
         <Route path='/movies' element={
           <Movies
           movies={movies}
-          page={page} 
-          onPageChange={(event, value) => setPage(value)}
-        />
+          />
       }/>
         <Route path='/series' element={<Series/>}></Route>
         <Route path='/people' element={<People/>}></Route>
         <Route path='/aboutus' element={<AboutUs/>}></Route>
       </Routes>
+      {loading && (
+          <div style={{ textAlign: "center", padding: "20px", fontWeight: "bold" }}>
+            Loading more movies....
+          </div>
+        )}
       
       <Footer/>
     </>

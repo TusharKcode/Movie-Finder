@@ -1,6 +1,4 @@
-import Pagination from '@mui/material/Pagination';
-
-function Movies({ movies = [], page = 1, onPageChange }) {
+function Movies({ movies = [] }) {
 
   return (
     <>
@@ -62,17 +60,6 @@ function Movies({ movies = [], page = 1, onPageChange }) {
             </div>
           );
         })}
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "20px",
-          marginBottom: "40px",
-        }}
-      >
-        <Pagination count={20} page={page} color="secondary" onChange={onPageChange} />
       </div>
     </>
   );

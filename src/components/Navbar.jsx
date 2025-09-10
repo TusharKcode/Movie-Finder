@@ -33,9 +33,8 @@ function Navbar(){
         setAnchorElUser(null);
     };
     const pages = [
-        { name: "Home", path: "/" },
+        { name: "About Us", path: "/aboutUs" },
         { name: "Movies", path: "/movies" },
-        { name: "About Us", path: "/aboutUs" }
     ];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
     return(

@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import SearchBar from './components/SearchBar'
-import HomeSection from './pages/HomeSection'
 import Movies from './pages/Movies'
 import AboutUs from './pages/AboutUs'
 import { useEffect, useState } from 'react'
@@ -87,13 +86,12 @@ function App() {
       
       <SearchBar onSearch={handleSearch}/>
       <Routes>
-        <Route path='/' element={<HomeSection/>}/>
+        <Route path='/aboutus' element={<AboutUs/>}></Route>
         <Route path='/movies' element={
           <Movies
           movies={movies}
           />
       }/>
-        <Route path='/aboutus' element={<AboutUs/>}></Route>
       </Routes>
       {loading && (
           <div style={{ textAlign: "center", padding: "20px", fontWeight: "bold" }}>

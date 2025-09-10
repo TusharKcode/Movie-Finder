@@ -6,8 +6,6 @@ import SearchBar from './components/SearchBar'
 import HomeSection from './pages/HomeSection'
 import Movies from './pages/Movies'
 import AboutUs from './pages/AboutUs'
-import Series from './pages/Series'
-import People from './pages/People'
 import { useEffect, useState } from 'react'
 
 
@@ -95,8 +93,6 @@ function App() {
           movies={movies}
           />
       }/>
-        <Route path='/series' element={<Series/>}></Route>
-        <Route path='/people' element={<People/>}></Route>
         <Route path='/aboutus' element={<AboutUs/>}></Route>
       </Routes>
       {loading && (

@@ -35,8 +35,6 @@ function Navbar(){
     const pages = [
         { name: "Home", path: "/" },
         { name: "Movies", path: "/movies" },
-        { name: "Series", path: "/series" },
-        { name: "People", path: "/people" },
         { name: "About Us", path: "/aboutUs" }
     ];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

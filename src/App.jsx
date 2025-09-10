@@ -87,9 +87,7 @@ function App() {
       <SearchBar onSearch={handleSearch}/>
       <Routes>
         <Route path='/aboutus' element={<AboutUs/>}></Route>
-        <Route path='/movies' element={
-          <Movies
-          movies={movies}
+        <Route path='/movies' element={<Movies movies={movies}
           />
       }/>
       </Routes>
